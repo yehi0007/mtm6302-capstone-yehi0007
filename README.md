@@ -1,29 +1,33 @@
-# APOD Search Application - UI Design Decisions
+# Capstone Project - Part 3
 
-## 📱 Responsive Design Strategy
-The interface follows a **mobile-first approach** with three key breakpoints:
-- **375px** (mobile)  
-- **768px** (tablet)  
-- **1440px** (desktop)  
+## Prototype Overview
 
-This ensures optimal usability and layout across devices.
+This project is a prototype of the APOD (Astronomy Picture of the Day) application.  
+It allows users to:
 
----
+- Select a date and view APOD images.
+- Add images to a favorites list.
+- View and manage favorites stored in Local Storage.
 
-## 🎨 Core UI Components
+## Files
 
-### 🏠 Main Page (Home Screen)
-- **Side-by-side image display** (Standard and HD) on desktop to optimize space.  
-- **Date selection form** with a prominent **CTA button** for quick interaction.  
-- **Descriptive labels** (e.g., *"Standard Image," "HD Image"*) to enhance clarity.  
-- **"Add to Favorites" buttons** with visual feedback for better user interaction.  
+- `index.html` → Main page to display APOD.
+- `favorites.html` → Page to view and manage favorite images.
+- `style.css` → Custom CSS styling for layout and responsiveness.
+- `script.js` → Handles interactivity and Local Storage logic.
+- `Test image.jpg` → dummy image simulate fetch image from api
 
----
+## Responsiveness
 
-### ⭐ Favorites Page (Favorites Screen)
-- **Card-based favorites grid** for improved scanability.  
-- **Delete icons** on each card for quick and easy management.  
-- **Back button** for seamless navigation to the Home Screen.  
-- **Detailed image previews** with associated dates for context.  
+The prototype is responsive and adapts to mobile, tablet, and desktop layouts using Flexbox.
 
----
+## Resources Used
+
+- [MDN Web Docs](https://developer.mozilla.org/) for HTML, CSS, JS references.
+- [W3C Validator](https://validator.w3.org/#validate_by_input) to check code validity.
+
+## Challenges Faced
+
+- Handling Local Storage updates (adding/removing).
+- Making sure favorites persist across pages.
+- Designing a responsive layout matching the mockup.
