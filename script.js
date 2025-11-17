@@ -1,4 +1,5 @@
 const dateInput = document.getElementById("dateInput");
+const getApodBtn = document.getElementById("getApodBtn");
 
 const standardImage = document.getElementById("standardImage");
 const hdImage = document.getElementById("hdImage");
@@ -11,16 +12,40 @@ const titleHd = document.getElementById("titleHd");
 const dateHd = document.getElementById("dateHd");
 const explanationHd = document.getElementById("explanationHd");
 
+async function getApodByDate(date) {
+  try {
+    const response = await fetch("./apod_data.json");
+    const data = await response.json();
+
+    const apodItem = data.find((item) => item.date === date);
+    if (!apodItem) {
+      alert("No data found for this date.");
+      return;
+    }
+
+    standardImage.src = apodItem.image;
+    hdImage.src = apodItem.image || apodItem.image;
+
+    titleStandard.textContent = apodItem.title;
+    dateStandard.textContent = apodItem.date;
+    explanationStandard.textContent = apodItem.description;
+    titleHd.textContent = apodItem.title;
+    dateHd.textContent = apodItem.date;
+    explanationHd.textContent = apodItem.description;
+  } catch (error) {
+    console.error("Error fetching APOD data:", error);
+  }
+}
+
 if (getApodBtn) {
   getApodBtn.addEventListener("click", () => {
     const date = dateInput.value;
     if (date) {
-        
+      getApodByDate(date);
     } else {
       alert("Please select a date.");
     }
   });
-
 }
 
 function addToFavorites() {
